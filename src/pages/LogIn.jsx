@@ -1,5 +1,7 @@
 import { Formik, Form, Field } from "formik";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { loginThunk } from "../redux/auth/operations";
 
 const LogIn = () => {
   const initialValues = {
@@ -7,8 +9,14 @@ const LogIn = () => {
     email: "",
   };
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleSubmit = (values, actions) => {
     console.log(values);
+    dispatch(loginThunk(values))
+      .unwrap()
+      .then(() => navigate("/"));
     actions.resetForm();
   };
   return (

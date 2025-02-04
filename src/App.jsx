@@ -1,12 +1,9 @@
-//import { PiAddressBookDuotone } from "react-icons/pi";
-//import ContactForm from "./components/ContactForm/ContactForm";
-//import SearchBox from "./components/SearchBox/SearchBox";
-//import ContactList from "./components/ContactList/ContactList";
-//import { useDispatch } from "react-redux";
-//import { useEffect } from "react";
-//import { fetchContacts } from "./redux/contactsOps";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { selectIsRefreshing } from "./redux/auth/selectors";
+import { refreshUserThunk } from "./redux/auth/operations";
 
 const Layout = lazy(() => import("./components/Layout/Layout"));
 const Home = lazy(() => import("./pages/Home"));
@@ -16,25 +13,17 @@ const PhoneBook = lazy(() => import("./pages/PhoneBook"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
 
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(refreshUserThunk());
+  }, [dispatch]);
 
-  return (
-    //     <div className="phonebook-box">
-    //       {/* <h1 className="phonebook-title">
-    //         Phonebook
-    //         <PiAddressBookDuotone className="icon" />
-    //       </h1> */}
-    //       {/* <ContactForm />
-    //       <SearchBox />
-    //       <ContactList /> */}
-    //  </div>
+  return isRefreshing ? null : (
     <Suspense>
       <Routes>
-        <Route path="/" elements={<Layout />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="phonebook" element={<PhoneBook />} />
         </Route>
