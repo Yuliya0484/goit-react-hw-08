@@ -35,11 +35,44 @@ h1 {
 
 button {
   border-radius: 8px;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  border: none;
+  padding: 6px 10px;
+  font-size: 16px;
+  font-weight: 400;
   font-family: inherit;
   cursor: pointer;
+  width: fit-content;
+  background-color: #535bf2;
+  &:hover {
+    background-color: #363fed;
+    color: whitesmoke;
+  }
+}
+.log-box {
+  position: absolute;
+  right: 40%;
+  bottom: 45%;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid darkgrey;
+  border-radius: 8px;
+  box-shadow: 0 0 2px 2px rgb(62, 95, 128);
+  padding: 12px;
+}
+label {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: transparent;
 }
 
 /* @media (prefers-color-scheme: light) {

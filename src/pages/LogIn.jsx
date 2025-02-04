@@ -12,7 +12,7 @@ const LogIn = () => {
     actions.resetForm();
   };
   return (
-    <>
+    <div className="log-box">
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form>
           <label>
@@ -29,7 +29,7 @@ const LogIn = () => {
           </p>
         </Form>
       </Formik>
-    </>
+    </div>
   );
 };
 

@@ -1,5 +1,8 @@
 import { Formik, Form, Field } from "formik";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+
+import { registerThunk } from "../redux/auth/operations";
 
 const Register = () => {
   const initialValues = {
@@ -8,12 +11,18 @@ const Register = () => {
     name: "",
   };
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleSubmit = (values, actions) => {
     console.log(values);
+    dispatch(registerThunk(values))
+      .unwrap()
+      .then(() => navigate("/"));
     actions.resetForm();
   };
   return (
-    <>
+    <div className="log-box">
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form>
           <label>
@@ -34,7 +43,7 @@ const Register = () => {
           </p>
         </Form>
       </Formik>
-    </>
+    </div>
   );
 };
 
