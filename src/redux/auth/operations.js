@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export const goitApi = axios.create({
   baseURL: "https://connections-api.goit.global",
@@ -17,6 +18,10 @@ export const registerThunk = createAsyncThunk(
       setAuthHeader(data.token);
       return data;
     } catch (error) {
+      if (error.response.data.code === 11000) {
+        toast.error("User have already exist!");
+        return thunkApi.rejectWithValue(error.message);
+      }
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -30,6 +35,10 @@ export const loginThunk = createAsyncThunk(
       setAuthHeader(data.token);
       return data;
     } catch (error) {
+      console.error(
+        "Login error:",
+        error.response ? error.response.data : error.message
+      );
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -51,7 +60,7 @@ export const refreshUserThunk = createAsyncThunk(
   "auth/refreshUser",
   async (_, thunkApi) => {
     const savedToken = thunkApi.getState().auth.token;
-    if (!savedToken) {
+    if (savedToken === null) {
       return thunkApi.rejectWithValue("token is not exist");
     }
     setAuthHeader(savedToken);

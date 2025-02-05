@@ -14,6 +14,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => {
   const dispatch = useDispatch();
+
   const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {

@@ -1,0 +1,13 @@
+.header {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerLink {
+  margin-right: 12px;
+}
+.text {
+  font-style: italic;
+}

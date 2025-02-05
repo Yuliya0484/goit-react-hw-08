@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors";
 import { logoutThunk } from "../../redux/auth/operations";
+import s from "./Header.module.css";
+import { PiAddressBookDuotone } from "react-icons/pi";
 
 const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -9,18 +11,31 @@ const Header = () => {
   const dispatch = useDispatch();
 
   return (
-    <header>
-      <h2>Make Your PhoneBook</h2>
-      {isLoggedIn && <p>Welcome, {user.name}</p>}
+    <header className={s.header}>
+      <h3>
+        Make Your PhoneBook{" "}
+        <span>
+          <PiAddressBookDuotone className="icon" />
+        </span>
+      </h3>
+      {isLoggedIn && <p className={s.text}>Welcome, {user.name}</p>}
       <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/phonebook">PhoneBook</NavLink>
+        <NavLink className={s.headerLink} to="/">
+          Home
+        </NavLink>
+        <NavLink className={s.headerLink} to="/phonebook">
+          PhoneBook
+        </NavLink>
         {isLoggedIn ? (
           <button onClick={() => dispatch(logoutThunk())}>Logout</button>
         ) : (
           <>
-            <NavLink to="/register">Register</NavLink>
-            <NavLink to="/login">Login</NavLink>
+            <NavLink className={s.headerLink} to="/register">
+              Register
+            </NavLink>
+            <NavLink className={s.headerLink} to="/login">
+              Login
+            </NavLink>
           </>
         )}
       </nav>
