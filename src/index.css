@@ -8,6 +8,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+image {
+  object-fit: cover;
+
+  width: 100%;
+  height: auto;
+}
 
 a {
   font-weight: 500;
@@ -16,6 +22,9 @@ a {
 }
 a:hover {
   color: #535bf2;
+  border: 1px solid #424691;
+  border-radius: 8px;
+  padding: 6px 10px;
 }
 
 body {
@@ -29,6 +38,7 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  margin: 0;
 }
 
 button {
@@ -87,4 +97,38 @@ input {
 }
 .icon {
   margin-left: 24px;
+}
+header {
+  background-color: aliceblue;
+}
+
+.homepage-box {
+  background-image: url("./assets/images/phonebook.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.homepage-title {
+  text-align: center;
+  color: whitesmoke;
+}
+.homepage-text-box {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px;
+}
+.text-wrap {
+  max-width: 200px;
+  box-shadow: 0 0 4px 4px whitesmoke;
+  border: 1px solid whitesmoke;
+  border-radius: 8px;
+  padding: 4px;
+}
+.homepage-text {
+  color: rgb(27, 26, 26);
+  transition: all 0.5s;
+  &:hover {
+    color: whitesmoke;
+    border: none;
+  }
 }

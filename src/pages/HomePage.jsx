@@ -1,14 +1,22 @@
+import { NavLink } from "react-router-dom";
+
 const HomePage = () => {
   return (
-    <>
-      Home
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore nulla
-        nostrum vel reiciendis harum quos repellat, sapiente tempora sint
-        beatae, numquam animi temporibus officia odio officiis sed totam facilis
-        quasi.
-      </p>
-    </>
+    <div className="homepage-box">
+      <h1 className="homepage-title">Welcome to our App!!! </h1>
+      <div className="homepage-text-box">
+        <div className="text-wrap">
+          <NavLink to="/register" className="homepage-text">
+            If you want to create your own PhoneBook, please register!
+          </NavLink>
+        </div>
+        <div className="text-wrap">
+          <NavLink to="/login" className="homepage-text">
+            If you are already registered, welcome to your application!
+          </NavLink>
+        </div>
+      </div>
+    </div>
   );
 };
 
