@@ -2,16 +2,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import { selectIsRefreshing } from "./redux/auth/selectors";
+
 import { refreshUserThunk } from "./redux/auth/operations";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
+import { selectIsRefreshing } from "./redux/auth/selectors";
+import Layout from "./components/Layout/Layout";
 
-const Layout = lazy(() => import("./components/Layout/Layout"));
-const Home = lazy(() => import("./pages/Home"));
-const LogIn = lazy(() => import("./pages/LogIn"));
-const Register = lazy(() => import("./pages/Register"));
-const PhoneBook = lazy(() => import("./pages/PhoneBook"));
+const HomePage = lazy(() => import("./pages/HomePage"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const RegistrationPage = lazy(() => import("./pages/RegistrationPage"));
+const ContactsPage = lazy(() => import("./pages/ContactsPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => {
@@ -31,7 +32,7 @@ const App = () => {
             index
             element={
               <PublicRoute>
-                <Home />
+                <HomePage />
               </PublicRoute>
             }
           />
@@ -39,30 +40,27 @@ const App = () => {
             path="phonebook"
             element={
               <PrivateRoute>
-                <PhoneBook />
+                <ContactsPage />
               </PrivateRoute>
             }
           />
         </Route>
-
         <Route
           path="/login"
           element={
             <PublicRoute>
-              <LogIn />
+              <LoginPage />
             </PublicRoute>
           }
         />
-
         <Route
           path="/register"
           element={
             <PublicRoute>
-              <Register />
+              <RegistrationPage />
             </PublicRoute>
           }
         />
-
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
