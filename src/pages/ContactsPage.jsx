@@ -3,7 +3,7 @@ import ContactForm from "../components/ContactForm/ContactForm";
 import SearchBox from "../components/SearchBox/SearchBox";
 import ContactList from "../components/ContactList/ContactList";
 
-const PhoneBook = () => {
+const ContactsPage = () => {
   return (
     <div className="phonebook-box">
       <h1 className="phonebook-title">
@@ -17,4 +17,4 @@ const PhoneBook = () => {
   );
 };
 
-export default PhoneBook;
+export default ContactsPage;

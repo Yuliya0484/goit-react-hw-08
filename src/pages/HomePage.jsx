@@ -1,4 +1,4 @@
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       Home
@@ -12,4 +12,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

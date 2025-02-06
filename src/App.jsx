@@ -4,6 +4,8 @@ import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 import { refreshUserThunk } from "./redux/auth/operations";
+import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
 
 const Layout = lazy(() => import("./components/Layout/Layout"));
 const Home = lazy(() => import("./pages/Home"));
@@ -25,13 +27,41 @@ const App = () => {
     <Suspense>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="phonebook" element={<PhoneBook />} />
+          <Route
+            index
+            element={
+              <PublicRoute>
+                <Home />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="phonebook"
+            element={
+              <PrivateRoute>
+                <PhoneBook />
+              </PrivateRoute>
+            }
+          />
         </Route>
 
-        <Route path="/login" element={<LogIn />} />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <LogIn />
+            </PublicRoute>
+          }
+        />
 
-        <Route path="/register" element={<Register />} />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

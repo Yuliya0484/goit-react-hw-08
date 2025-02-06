@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { loginThunk } from "../redux/auth/operations";
 
-const LogIn = () => {
+const LoginPage = () => {
   const initialValues = {
     password: "",
     email: "",
@@ -41,4 +41,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default LoginPage;

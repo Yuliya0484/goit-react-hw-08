@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { registerThunk } from "../redux/auth/operations";
 
-const Register = () => {
+const RegistrationPage = () => {
   const initialValues = {
     password: "",
     email: "",
@@ -47,4 +47,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegistrationPage;
