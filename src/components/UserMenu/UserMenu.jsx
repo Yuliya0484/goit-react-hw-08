@@ -1,11 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+
 import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors";
 import { logoutThunk } from "../../redux/auth/operations";
-import s from "./Header.module.css";
+import s from "./UserMenu.module.css";
+import AuthNav from "../AuthNav/AuthNav";
+
 import { PiAddressBookDuotone } from "react-icons/pi";
 
-const Header = () => {
+const UserMenu = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -13,7 +16,7 @@ const Header = () => {
   return (
     <header className={s.header}>
       <h3>
-        Make Your PhoneBook{" "}
+        Create Your PhoneBook{" "}
         <span>
           <PiAddressBookDuotone className="icon" />
         </span>
@@ -30,12 +33,7 @@ const Header = () => {
           <button onClick={() => dispatch(logoutThunk())}>Logout</button>
         ) : (
           <>
-            <NavLink className={s.headerLink} to="/register">
-              Register
-            </NavLink>
-            <NavLink className={s.headerLink} to="/login">
-              Login
-            </NavLink>
+            <AuthNav />
           </>
         )}
       </nav>
@@ -43,4 +41,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default UserMenu;

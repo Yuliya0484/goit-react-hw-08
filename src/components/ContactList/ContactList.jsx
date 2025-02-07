@@ -1,10 +1,11 @@
-import s from "./ContactList.module.css";
-import Contact from "../Contact/Contact";
 import { useDispatch, useSelector } from "react-redux";
-import { selectIsError, selectIsLoading } from "../../redux/contacts/slice";
 import { useEffect } from "react";
+
+import Contact from "../Contact/Contact";
+import { selectIsError, selectIsLoading } from "../../redux/contacts/slice";
 import { fetchContacts, deleteContact } from "../../redux/contacts/operations";
 import { selectFilteredContacts } from "../../redux/contacts/slice";
+import s from "./ContactList.module.css";
 
 const ContactList = () => {
   const dispatch = useDispatch();

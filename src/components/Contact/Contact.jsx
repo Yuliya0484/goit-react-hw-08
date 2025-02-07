@@ -1,4 +1,5 @@
 import s from "./Contact.module.css";
+
 import { BsPersonSquare } from "react-icons/bs";
 import { LiaPhoneVolumeSolid } from "react-icons/lia";
 

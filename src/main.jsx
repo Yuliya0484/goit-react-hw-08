@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast";
 import { persistor, store } from "./redux/store";
 
 import "./index.css";
-import App from "./App.jsx";
+import App from "./components/App";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

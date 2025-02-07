@@ -3,17 +3,17 @@ import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
-import { refreshUserThunk } from "./redux/auth/operations";
+import { refreshUserThunk } from "../redux/auth/operations";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
-import { selectIsRefreshing } from "./redux/auth/selectors";
-import Layout from "./components/Layout/Layout";
+import { selectIsRefreshing } from "../redux/auth/selectors";
+import Layout from "./Layout";
 
-const HomePage = lazy(() => import("./pages/HomePage"));
-const LoginPage = lazy(() => import("./pages/LoginPage"));
-const RegistrationPage = lazy(() => import("./pages/RegistrationPage"));
-const ContactsPage = lazy(() => import("./pages/ContactsPage"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+const HomePage = lazy(() => import("../pages/HomePage"));
+const LoginPage = lazy(() => import("../pages/LoginPage"));
+const RegistrationPage = lazy(() => import("../pages/RegistrationPage"));
+const ContactsPage = lazy(() => import("../pages/ContactsPage"));
+const NotFound = lazy(() => import("../pages/NotFound"));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -28,14 +28,7 @@ const App = () => {
     <Suspense>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route
-            index
-            element={
-              <PublicRoute>
-                <HomePage />
-              </PublicRoute>
-            }
-          />
+          <Route index element={<HomePage />} />
           <Route
             path="phonebook"
             element={

@@ -35,9 +35,9 @@ body {
   color: rgb(30, 30, 31);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+h1,
+h2,
+h3 {
   margin: 0;
 }
 
@@ -98,24 +98,46 @@ input {
 .icon {
   margin-left: 24px;
 }
-header {
-  background-color: aliceblue;
-}
 
 .homepage-box {
   background-image: url("./assets/images/phonebook.png");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
-.homepage-title {
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.title {
   text-align: center;
-  color: whitesmoke;
+  text-shadow: 3px 1px 2px white;
+  margin-bottom: 24px;
+  font-size: 2rem;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid white;
+  animation: typing 3s steps(20, end), blink 0.5s step-end infinite alternate;
 }
 .homepage-text-box {
   display: flex;
   justify-content: space-between;
-  margin: 40px;
+  margin: 12px 40px;
 }
 .text-wrap {
   max-width: 200px;
@@ -124,6 +146,7 @@ header {
   border-radius: 8px;
   padding: 4px;
 }
+
 .homepage-text {
   color: rgb(27, 26, 26);
   transition: all 0.5s;
