@@ -1,12 +1,5 @@
-.header {
-  padding: 8px 12px;
+.userMenu {
   display: flex;
-  justify-content: space-around;
+  gap: 24px;
   align-items: center;
-  background-color: aliceblue;
-  justify-content: space-around;
-}
-
-.text {
-  font-style: italic;
 }

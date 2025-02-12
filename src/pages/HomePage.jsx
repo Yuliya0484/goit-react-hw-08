@@ -17,7 +17,7 @@ const HomePage = () => {
         </div>
         <div className="text-wrap">
           <NavLink to="/phonebook" className="homepage-text">
-            Let's go to create your PhoneBook!
+            Let s go to create your PhoneBook!
           </NavLink>
         </div>
       </div>

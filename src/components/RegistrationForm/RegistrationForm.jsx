@@ -7,9 +7,9 @@ import { registerThunk } from "../../redux/auth/operations";
 
 const RegistrationForm = () => {
   const initialValues = {
-    password: "",
-    email: "",
     name: "",
+    email: "",
+    password: "",
   };
 
   const dispatch = useDispatch();

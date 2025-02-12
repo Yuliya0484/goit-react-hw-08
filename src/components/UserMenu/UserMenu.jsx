@@ -1,12 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+//import { NavLink } from "react-router-dom";
 
 import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors";
 import { logoutThunk } from "../../redux/auth/operations";
 import s from "./UserMenu.module.css";
-import AuthNav from "../AuthNav/AuthNav";
-
-import { PiAddressBookDuotone } from "react-icons/pi";
+//import AuthNav from "../AuthNav/AuthNav";
 
 const UserMenu = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -14,30 +12,12 @@ const UserMenu = () => {
   const dispatch = useDispatch();
 
   return (
-    <header className={s.header}>
-      <h3>
-        Create Your PhoneBook{" "}
-        <span>
-          <PiAddressBookDuotone className="icon" />
-        </span>
-      </h3>
+    <div className={s.userMenu}>
       {isLoggedIn && <p className={s.text}>Welcome, {user.name}</p>}
       <nav>
-        <NavLink className={s.headerLink} to="/">
-          Home
-        </NavLink>
-        <NavLink className={s.headerLink} to="/phonebook">
-          PhoneBook
-        </NavLink>
-        {isLoggedIn ? (
-          <button onClick={() => dispatch(logoutThunk())}>Logout</button>
-        ) : (
-          <>
-            <AuthNav />
-          </>
-        )}
+        <button onClick={() => dispatch(logoutThunk())}>Logout</button>
       </nav>
-    </header>
+    </div>
   );
 };
 

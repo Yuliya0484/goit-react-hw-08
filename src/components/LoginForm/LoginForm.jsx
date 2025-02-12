@@ -6,8 +6,8 @@ import { loginThunk } from "../../redux/auth/operations";
 
 const LoginForm = () => {
   const initialValues = {
-    password: "",
     email: "",
+    password: "",
   };
 
   const dispatch = useDispatch();

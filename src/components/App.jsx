@@ -24,6 +24,10 @@ const App = () => {
     dispatch(refreshUserThunk());
   }, [dispatch]);
 
+  // if (isRefreshing) {
+  //   return <p>Loading...</p>
+  // }
+
   return isRefreshing ? null : (
     <Suspense>
       <Routes>

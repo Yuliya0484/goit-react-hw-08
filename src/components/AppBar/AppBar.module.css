@@ -1,0 +1,11 @@
+.header {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  background-color: aliceblue;
+  justify-content: space-around;
+}
+
+.text {
+  font-style: italic;
+}
