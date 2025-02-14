@@ -2,6 +2,7 @@ import { FaHandPointDown } from "react-icons/fa";
 import { Formik, Form, Field } from "formik";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import s from "./RegistrationForm.module.css";
 
 import { registerThunk } from "../../redux/auth/operations";
 
@@ -46,7 +47,10 @@ const RegistrationForm = () => {
           </label>
           <button type="submit">Register</button>
           <p>
-            You already have an account?<Link to="/login">Login!</Link>
+            You already have an account?
+            <Link className={s.registerLink} to="/login">
+              Login!
+            </Link>
           </p>
         </Form>
       </Formik>

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
 import { loginThunk } from "../../redux/auth/operations";
+import s from "./LoginForm.module.css";
 
 const LoginForm = () => {
   const initialValues = {
@@ -35,7 +36,10 @@ const LoginForm = () => {
           </label>
           <button type="submit">Log In</button>
           <p>
-            You do not have an account?<Link to="/register">Go to create!</Link>
+            You do not have an account?
+            <Link className={s.loginLink} to="/register">
+              Go to create!
+            </Link>
           </p>
         </Form>
       </Formik>
